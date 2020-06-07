@@ -1,6 +1,6 @@
 # build stage
 FROM golang:alpine AS build-stage
-ADD .. /src
+ADD . /src
 RUN cd /src && go build -o mirrorFinder
 
 # final stage

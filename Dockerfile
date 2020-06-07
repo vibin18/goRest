@@ -7,4 +7,4 @@ RUN cd /src/api && go build -o api
 FROM alpine
 WORKDIR /app
 COPY --from=build-stage /src/api/api /app/
-ENTRYPOINT ./mirrorFinder
+ENTRYPOINT ./api

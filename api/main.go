@@ -6,6 +6,7 @@ import (
 	"time"
 	"github.com/vibin18/goRest/mirrors"
 	"github.com/vibin18/goRest/weather"
+	"github.com/vibin18/goRest/localApiGather"
 	log "github.com/sirupsen/logrus"
 
 
@@ -37,6 +38,16 @@ func main() {
 		WrespJSON, _ := json.Marshal(Wresponse)
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(WrespJSON)
+	})
+
+
+	http.HandleFunc("/local", func(w http.ResponseWriter,
+		r *http.Request) {
+		log.Info("Request for /temp")
+		Lresponse := localApiGather.localApiGather()
+		LrespJSON, _ := json.Marshal(Lresponse)
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(LrespJSON)
 	})
 
 

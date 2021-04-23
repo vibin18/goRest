@@ -19,7 +19,7 @@ var (
 
 func localApiGather() CurrentWeather {
 
-	//resp, err := http.Get("https://api.openweathermap.org/data/2.5/weather?id=2947444&units=metric&appid=3a20a64aa7cb7e38a83c7cb2b48ab460")
+
 	resp, err := http.Get(weatherBaseUrl + weatherSubPath)
 	if err != nil {
 		log.Fatalln(err)
